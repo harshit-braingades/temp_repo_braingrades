@@ -28,17 +28,6 @@ const RightSidebar = () => {
       .catch((err) => console.error("Event fetch error:", err));
   }, []);
 
-  // Upcoming Events (time-aware filter)
-//   const upcomingEvents = Object.entries(events)
-//     .flatMap(([date, arr]) =>
-//       arr.map((ev) => ({
-//         ...ev,
-//         dateObj: dayjs(`${date} ${ev.startTime || "00:00"}`, "YYYY-MM-DD HH:mm"),
-//       }))
-//     )
-//     .filter((ev) => ev.dateObj.isAfter(dayjs()))
-//     .sort((a, b) => a.dateObj.diff(b.dateObj))
-//     .slice(0, 5);
 const upcomingEvents = Object.entries(events)
   .flatMap(([date, arr]) =>
     arr.map((ev) => ({
@@ -60,18 +49,18 @@ const upcomingEvents = Object.entries(events)
     <div className="p-4 w-full space-y-4">
 
       {/* Calendar */}
-      <Calendar
-        onChange={setSelectedDate}
-        value={selectedDate}
-        tileContent={({ date, view }) =>
-          view === "month" && hasEvent(date) ? (
-            <div className="flex justify-center mt-1">
-              <div className="w-2 h-2 bg-green-500 rounded-full" />
-            </div>
-          ) : null
-        }
-        className="rounded-lg border-none"
-      />
+<Calendar
+  onChange={setSelectedDate}
+  value={selectedDate}
+  tileContent={({ date, view }) =>
+    view === "month" && hasEvent(date) ? (
+      <div className="flex justify-center mt-1">
+        <div className="w-2 h-2 bg-green-500 rounded-full" />
+      </div>
+    ) : null
+  }
+  className="w-full rounded-lg border-none mobile-calendar"
+/>
 
       {/* Toggle Buttons */}
       <div className="flex gap-2">

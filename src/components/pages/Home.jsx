@@ -89,28 +89,6 @@ const Home = () => {
         )}
       </div>
 
-      {/* Top Three Students */}
-      {/* <div className="bg-white rounded-xl p-6 shadow-sm space-y-4">
-
-        <div className="bg-primary text-white rounded-md px-4 py-2">
-          Top Three Students
-        </div>
-
-        <div className="space-y-3">
-          {topThree.map((student, index) => (
-            <div
-              key={index}
-              className="flex justify-between bg-gray-100 px-4 py-2 rounded-md"
-            >
-              <span>{student.name}</span>
-              <span className="flex items-center gap-2">
-                {student.score}% {student.medal}
-              </span>
-            </div>
-          ))}
-        </div>
-
-      </div> */}
 
     </div>
   );

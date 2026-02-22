@@ -1,92 +1,64 @@
-// import { Outlet, useLocation } from "react-router-dom";
-// import Sidebar from "./Sidebar";
-// import RightSidebar from "./RightSidebar";
-// import TopSection from "./TopSection";
-
-// const AppLayout = () => {
-//   const location = useLocation();
-
-//   const pageTitleMap = {
-//     "/home": "Home",
-//     "/enrollment": "Enrollment",
-//     "/course-feed": "Course Feed",
-//     "/result-feed": "Result Feed",
-//     "/attendance": "Attendance",
-//     "/student-insight": "Student Insight",
-//     "/admin": "Admin",
-//   };
-
-//   const currentTitle = pageTitleMap[location.pathname] || "Dashboard";
-
-//   return (
-//     <div className="flex min-h-screen bg-secondary">
-
-//       {/* Sidebar */}
-//       <div className="w-[220px] min-w-[180px] bg-white border-r border-gray-200 hidden md:flex flex-col">
-//         <Sidebar />
-//       </div>
-
-//       {/* Main Area */}
-//       <div className="flex-1 p-6 space-y-6">
-
-//         {/* Permanent Top Section */}
-//         <TopSection />
-
-//         {/* Dynamic Page Heading */}
-//         <h1 className="text-2xl font-bold">
-//           {currentTitle}
-//         </h1>
-
-//         {/* Dynamic Page Content */}
-//         <Outlet />
-
-//       </div>
-
-//       {/* Right Sidebar */}
-//       <div className="w-[300px] min-w-[250px] bg-white hidden lg:flex">
-//         <RightSidebar />
-//       </div>
-
-//     </div>
-//   );
-// };
-
-// export default AppLayout;
-
-
+// mobile responsive code ----->>>>>>
+import { useState } from "react";
 import Sidebar from "./Sidebar";
 import RightSidebar from "./RightSidebar";
 import TopSection from "./TopSection";
 import { Outlet } from "react-router-dom";
-import DemoSidebar from "./DemoSidebar";
-
 
 export default function AppLayout() {
-  return (
-    <div className="h-screen flex overflow-hidden">
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-      {/* LEFT SIDEBAR */}
-      <div className="w-64 flex-shrink-0">
-        <Sidebar />
+  return (
+    <div className="min-h-screen lg:h-screen flex flex-col lg:flex-row bg-gray-100">
+
+      {/* MOBILE SIDEBAR OVERLAY */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-40 z-40 lg:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
+      {/* SIDEBAR */}
+      <div
+        className={`
+          fixed lg:static top-0 left-0 h-full lg:h-auto
+          w-64 bg-white z-50 transform transition-transform duration-300
+          ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
+          lg:translate-x-0 lg:flex-shrink-0
+        `}
+      >
+        <Sidebar onClose={() => setIsSidebarOpen(false)} />
       </div>
 
-      {/* CENTER SECTION */}
-      <div className="flex-1 flex flex-col overflow-hidden">
+      {/* MAIN SECTION */}
+      <div className="flex-1 flex flex-col">
 
         {/* TOP HEADER */}
-        <div className="flex-shrink-0">
-          <TopSection />
+        <div className="flex-shrink-0 bg-white shadow-sm">
+          <TopSection onMenuClick={() => setIsSidebarOpen(true)} />
         </div>
 
         {/* SCROLLABLE CONTENT */}
-        <div className="flex-1 overflow-y-auto bg-gray-100 p-6">
+        <div className="flex-1 overflow-y-auto p-4 lg:p-6">
+
+          {/* MAIN OUTLET */}
           <Outlet />
+
+          {/* MOBILE EVENTS & CALENDAR SECTION */}
+          <div className="block lg:hidden mt-8">
+            <h2 className="text-lg font-semibold mb-4">
+              Events & Calendar
+            </h2>
+            <RightSidebar />
+          </div>
+
         </div>
 
       </div>
 
-      {/* RIGHT SIDEBAR */}
-      <div className="w-80 flex-shrink-0 border-l bg-white">
+      {/* DESKTOP RIGHT SIDEBAR */}
+      <div className="hidden lg:block w-80 flex-shrink-0 border-l bg-white">
         <RightSidebar />
       </div>
 
