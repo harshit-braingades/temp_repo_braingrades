@@ -66,52 +66,106 @@ const StudentValidator = ({ isSubjectData, onStudentValidated }) => {
     }
   };
 
+
+
   return (
-    <div className="bg-white rounded-xl shadow-md p-6 space-y-6">
+  <div className="bg-white rounded-xl shadow-md p-6">
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label className="block font-semibold mb-2">Student ID</label>
-          <input
-            type="text"
-            value={selectedStudentId}
-            onChange={(e) => setSelectedStudentId(e.target.value)}
-            className="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+    <div className="flex flex-col lg:flex-row lg:items-end gap-4">
 
-        <div>
-          <label className="block font-semibold mb-2">Enrollment ID</label>
-          <input
-            type="text"
-            value={selectedEnrollmentId}
-            onChange={(e) => setSelectedEnrollmentId(e.target.value)}
-            className="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+      {/* Student ID */}
+      <div className="flex-1">
+        <label className="block text-sm mb-2">Student ID</label>
+        <input
+          type="text"
+          value={selectedStudentId}
+          onChange={(e) => setSelectedStudentId(e.target.value)}
+          className="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
       </div>
 
-      <div className="text-center">
+      {/* Enrollment ID */}
+      <div className="flex-1">
+        <label className="block text-sm  mb-2">Enrollment ID</label>
+        <input
+          type="text"
+          value={selectedEnrollmentId}
+          onChange={(e) => setSelectedEnrollmentId(e.target.value)}
+          className="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      {/* Button */}
+      <div className="lg:w-auto w-full">
         <button
           onClick={handleStudentLoadDetails}
           disabled={loading}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition"
+          className="w-full lg:w-auto bg-blue-500 hover:bg-blue-600 text-white px-8 py-2.5 rounded-lg font-semibold transition"
         >
           {loading ? "Loading..." : "Fetch Student Details"}
         </button>
       </div>
 
-      {message && (
-        <div
-          className={`text-center font-semibold ${
-            messageType === "success" ? "text-green-600" : "text-red-600"
-          }`}
-        >
-          {message}
-        </div>
-      )}
     </div>
-  );
+
+    {message && (
+      <div
+        className={`text-center font-semibold mt-4 ${
+          messageType === "success" ? "text-green-600" : "text-red-600"
+        }`}
+      >
+        {message}
+      </div>
+    )}
+  </div>
+);
+
+  // return (
+  //   <div className="bg-white rounded-xl shadow-md p-6 space-y-6">
+
+  //     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  //       <div>
+  //         <label className="block font-semibold mb-2">Student ID</label>
+  //         <input
+  //           type="text"
+  //           value={selectedStudentId}
+  //           onChange={(e) => setSelectedStudentId(e.target.value)}
+  //           className="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+  //         />
+  //       </div>
+
+  //       <div>
+  //         <label className="block font-semibold mb-2">Enrollment ID</label>
+  //         <input
+  //           type="text"
+  //           value={selectedEnrollmentId}
+  //           onChange={(e) => setSelectedEnrollmentId(e.target.value)}
+  //           className="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+  //         />
+  //       </div>
+  //     </div>
+
+  //     <div className="text-center">
+  //       <button
+  //         onClick={handleStudentLoadDetails}
+  //         disabled={loading}
+  //         className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition"
+  //       >
+  //         {loading ? "Loading..." : "Fetch Student Details"}
+  //       </button>
+  //     </div>
+
+  //     {message && (
+  //       <div
+  //         className={`text-center font-semibold ${
+  //           messageType === "success" ? "text-green-600" : "text-red-600"
+  //         }`}
+  //       >
+  //         {message}
+  //       </div>
+  //     )}
+  //   </div>
+  // );
 };
 
 export default StudentValidator;

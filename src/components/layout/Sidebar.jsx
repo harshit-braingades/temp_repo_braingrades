@@ -1,5 +1,3 @@
-
-// mobile responsive ------->>>>>>>
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import {
@@ -188,7 +186,6 @@ const Sidebar = ({ onClose }) => {
         <FaSignOutAlt />
         <span>Sign Out</span>
       </div>
-
     </div>
   );
 };

@@ -27,7 +27,8 @@ const Home = () => {
   const [topThree, setTopThree] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useEffect(() => {      
+    
     setLoading(true);
 
     setTimeout(() => {

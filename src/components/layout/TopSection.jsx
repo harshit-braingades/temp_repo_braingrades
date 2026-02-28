@@ -1,16 +1,13 @@
-//must be used in future 
+//must be used in future
 import { Menu } from "lucide-react";
 
 const TopSection = ({ onMenuClick }) => {
   return (
     <div className="bg-white">
-
       {/* ===== MOBILE HEADER ===== */}
       <div className="lg:hidden px-4 py-3 space-y-3">
-
         {/* Row: Hamburger + Search */}
         <div className="flex items-center gap-3">
-
           {/* Hamburger */}
           <button
             onClick={onMenuClick}
@@ -20,14 +17,13 @@ const TopSection = ({ onMenuClick }) => {
           </button>
 
           {/* Search 70% width */}
-          <div className="flex-1">
+          <div className="flex-1 ">
             <input
               type="text"
               placeholder="Search anything..."
               className="w-full bg-gray-100 rounded-md px-3 py-2 outline-none text-sm"
             />
           </div>
-
         </div>
 
         {/* 🔵 Mobile Banner */}
@@ -36,12 +32,10 @@ const TopSection = ({ onMenuClick }) => {
             Welcome Back to Greenfield High School
           </p>
         </div>
-
       </div>
 
       {/* ===== DESKTOP HEADER ===== */}
       <div className="hidden lg:block space-y-2 p-2">
-
         {/* Banner */}
         <div className="bg-primary text-white rounded-xl px-6 py-2 flex items-center justify-between">
           <div>
@@ -67,12 +61,18 @@ const TopSection = ({ onMenuClick }) => {
           <input
             type="text"
             placeholder="Search anything..."
-            className="w-full outline-none text-gray-700"
+            className="w-full outline-none border border-gray-300
+            rounded-lg
+            px-4 py-2.5
+            text-sm
+            text-gray-700
+            placeholder-gray-400
+             shadow-sm
+
+            "
           />
         </div>
-
       </div>
-
     </div>
   );
 };

@@ -8,9 +8,9 @@ import Home from "./components/pages/Home";
 import Enrollment from "./components/pages/Enrollment";
 import CourseFeed from "./components/pages/CourseFeed";
 import ResultFeed from "./components/pages/ResultFeed";
-import Attendance from "./components/pages/Attendance";
 import StudentInsights from "./components/pages/StudentInsights";
 import Admin from "./components/pages/Admin";
+import Attendance from "./components/pages/Attendance";
 
 /* Dummy Pages */
 const PromoteStudent = () => <div className="p-2">Student Promote Page</div>;
@@ -27,7 +27,6 @@ const AdminSettings = () => <div className="p-2">Admin Settings Page</div>;
 function App() {
   return (
     <Routes>
-
       {/* Public */}
       <Route path="/login" element={<LoginPage />} />
 
@@ -64,12 +63,10 @@ function App() {
         {/* ADMIN */}
         <Route path="/admin/trigger" element={<Admin />} />
         <Route path="/admin/settings" element={<AdminSettings />} />
-
       </Route>
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/login" replace />} />
-
     </Routes>
   );
 }
