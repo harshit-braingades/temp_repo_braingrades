@@ -3,9 +3,9 @@ import { Menu } from "lucide-react";
 
 const TopSection = ({ onMenuClick }) => {
   return (
-    <div className="bg-white">
+    <div className="bg-white border ">
       {/* ===== MOBILE HEADER ===== */}
-      <div className="lg:hidden px-4 py-3 space-y-3">
+      <div className="lg:hidden px-4 py-3 space-y-3  border">
         {/* Row: Hamburger + Search */}
         <div className="flex items-center gap-3">
           {/* Hamburger */}
@@ -35,7 +35,7 @@ const TopSection = ({ onMenuClick }) => {
       </div>
 
       {/* ===== DESKTOP HEADER ===== */}
-      <div className="hidden lg:block space-y-2 p-2">
+      <div className="hidden lg:block space-y-1 p-1">
         {/* Banner */}
         <div className="bg-primary text-white rounded-xl px-6 py-2 flex items-center justify-between">
           <div>

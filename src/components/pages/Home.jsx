@@ -40,18 +40,17 @@ const Home = () => {
   }, [selectedClass]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-3">
 
       {/* Class Selector Card */}
-      <div className="bg-white rounded-xl p-6 shadow-sm space-y-4">
+      <div className="bg-white rounded-xl px-6 py-3 shadow-sm space-y-4">
 
-        <div className="text-red-500 text-sm text-center">
+        {/* <div className="text-red-500 text-sm text-center">
           Note: Currently showing dummy data.
-        </div>
+        </div> */}
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           <label className="font-medium">Select Class:</label>
-
           <select
             value={selectedClass}
             onChange={(e) => setSelectedClass(e.target.value)}

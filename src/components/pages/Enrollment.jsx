@@ -105,12 +105,12 @@ const Enrollment = () => {
 
       <div className="bg-white shadow-md rounded-xl p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Institute ID */}
-        <Input
+        {/* <Input
           label="Institute ID"
           name="instituteId"
           value={formData.instituteId}
           onChange={handleChange}
-        />
+        /> */}
 
         <Input
           label="Student ID"
@@ -179,7 +179,7 @@ const Enrollment = () => {
 
         <Input
           type="email"
-          label="Parent Email"
+          label="Guardian Email"
           name="parentEmail"
           value={formData.parentEmail}
           onChange={handleChange}
@@ -245,19 +245,6 @@ const Enrollment = () => {
           options={sections}
           onChange={handleChange}
         />
-
-        {/* Mailing Address */}
-        <div className="md:col-span-2">
-          <label className="block text-sm font-medium mb-2">
-            Mailing Address
-          </label>
-          <textarea
-            name="mailingAddress"
-            value={formData.mailingAddress}
-            onChange={handleChange}
-            className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-primary outline-none"
-          />
-        </div>
       </div>
 
       <button
@@ -285,6 +272,17 @@ const Enrollment = () => {
           />
 
           <Input type="Address" label="Address" name="address" />
+
+          {/* Mailing Address */}
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium mb-2">
+              Mailing Address
+            </label>
+            <textarea
+              name="mailingAddress"
+              className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-primary outline-none"
+            />
+          </div>
         </div>
       )}
 
