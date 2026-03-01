@@ -202,7 +202,7 @@ const AttendanceMonth = () => {
 
           <button
             onClick={fetchStudentForAttendance}
-            className="md:col-span-4 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+            className="md:col-span-4 bg-primary text-white py-2 rounded hover:bg-blue-700 transition"
           >
             Load Users Data
           </button>
